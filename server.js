@@ -4,7 +4,7 @@ import routes from './routes.js';
 const init = async () => {
     const server = Hapi.server({
         port: 5000,
-        host: 'http://192.168.0.164',
+        host: '0.0.0.0',
     });
 
     server.route(routes)
