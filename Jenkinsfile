@@ -5,14 +5,14 @@ pipeline {
         stage("Installing") {
             steps {
                 echo("Installing...")
-                sh 'npm install'
+                npm 'install'
             }
         }
 
         stage("Running") {
             steps {
                 echo("Running...")
-                sh 'npm start'
+                npm 'start'
             }
         }
     }
