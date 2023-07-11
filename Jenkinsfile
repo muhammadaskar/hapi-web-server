@@ -13,6 +13,7 @@ pipeline {
             steps {
                 echo("Running...")
                 npm 'start'
+                echo("Berhasil")
             }
         }
     }
