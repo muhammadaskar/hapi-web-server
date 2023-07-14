@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Running the container...'
-                sh 'docker run -d --name mycontainer -p 3001:4000 myimage:latest'
+                sh 'docker run -d --name mycontainer -p 5000:5000 myimage:latest'
                 echo 'Container is now running.'
                 sh 'docker ps'
             }
