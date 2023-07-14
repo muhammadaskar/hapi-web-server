@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Pull Repositories') {
             steps {
-                echo 'Pull Repositories!'
+                echo 'Hello, World Koding!'
             }
         }
         
         stage('Stop Container') {
             steps {
                 echo 'Stopping the running container...'
-                sh 'docker stop hapi-web-server || true'
-                sh 'docker rm hapi-web-server || true'
+                sh 'docker stop mycontainer || true'
+                sh 'docker rm mycontainer || true'
                 echo 'Container stopped.'
             }
         }
@@ -21,10 +21,11 @@ pipeline {
             steps {
                 echo 'Building Docker images...'
                 
-                sh 'docker rmi hapi-web-server:latest || true'
+                // Menghapus image sebelumnya
+                sh 'docker rmi myimage:latest || true'
                 
                 echo 'Proses Build'
-                sh 'docker build -t hapi-web-server:latest .'
+                sh 'docker build -t myimage:latest .'
                 echo 'Menampilkan hasil images'
                 sh 'docker images'
             }
@@ -33,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Running the container...'
-                sh 'docker run -d --name hapi-web-server -p 3001:4000 hapi-web-server:latest'
+                sh 'docker run -d --name mycontainer -p 3001:4000 myimage:latest'
                 echo 'Container is now running.'
                 sh 'docker ps'
             }
