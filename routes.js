@@ -3,7 +3,7 @@ const routes = [
         method: 'GET',
         path: '/',
         handler: (request, h) => {
-            return 'This is Homepage update';
+            return 'This is Homepage';
         },
     },
     {
